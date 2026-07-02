@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get an expert orthopaedic opinion for knee or back pain. Book your consultation at OrthoNow, Bengaluru.">
+  <title>Book a Consultation – OrthoNow Bengaluru</title>
+
+  <!-- GTM dataLayer initialisation — must run before any push -->
+  <script>window.dataLayer = window.dataLayer || [];</script>
+
+  <style>
+    /* ─────────────────────────────────────────
+       TOKENS
+       Navy #0F2744 | Accent #E8612A | Off-white #F7F6F4
+       Trust-green #1A7A4A | Body-gray #4A4A4A
+    ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0F2744;
+      --accent: #E8612A;
+      --accent-dark: #C94E1A;
+      --off-white: #F7F6F4;
+      --trust-green: #1A7A4A;
+      --body-gray: #4A4A4A;
+      --border: #D8D5D0;
+      --radius: 8px;
+      --max-w: 520px;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--off-white);
+      color: var(--body-gray);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER BAR ── */
+    .site-header {
+      background: var(--navy);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--accent); }
+    .header-badge {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--trust-green);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 12px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--trust-green);
+      border-radius: 50%;
+    }
+
+    /* ── HEADLINE ── */
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.65rem, 5.5vw, 2.1rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    /* ── SUBHEADLINE ── */
+    .subhead {
+      font-size: 1rem;
+      color: var(--body-gray);
+      margin-bottom: 28px;
+      line-height: 1.55;
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 28px;
+      background: #fff;
+    }
+    .trust-item {
+      flex: 1;
+      padding: 12px 8px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-num {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .trust-label {
+      display: block;
+      font-size: 0.69rem;
+      color: #888;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin-bottom: 20px;
+    }
+    .form-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    /* ── FORM FIELDS ── */
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--body-gray);
+      margin-bottom: 5px;
+    }
+    .field input {
+      display: block;
+      width: 100%;
+      padding: 13px 14px;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--off-white);
+      color: var(--navy);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      /* Prevents iOS zoom on focus (font-size >= 16px handles this) */
+    }
+    .field input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232,97,42,0.12);
+      background: #fff;
+    }
+    .field input.error { border-color: #D93025; }
+    .field-error {
+      font-size: 0.75rem;
+      color: #D93025;
+      margin-top: 4px;
+      display: none;
+    }
+    .field-error.visible { display: block; }
+
+    /* ── CTA BUTTON ── */
+    .btn-cta {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: inherit;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      letter-spacing: 0.2px;
+      transition: background 0.15s, transform 0.1s;
+      margin-top: 4px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-cta:hover  { background: var(--accent-dark); }
+    .btn-cta:active { transform: scale(0.98); }
+    .btn-cta:disabled { opacity: 0.65; cursor: not-allowed; }
+
+    /* ── PRIVACY NOTE ── */
+    .privacy-note {
+      font-size: 0.72rem;
+      color: #999;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .privacy-note svg { vertical-align: -2px; margin-right: 3px; }
+
+    /* ── SOCIAL PROOF (reviews) ── */
+    .reviews {
+      margin-bottom: 28px;
+    }
+    .reviews-header {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .review-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .review-stars {
+      color: #F5A623;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+    .review-text {
+      font-size: 0.88rem;
+      color: var(--body-gray);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .review-meta {
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+    .review-meta strong { color: #777; font-weight: 600; }
+
+    /* ── THANK-YOU STATE ── */
+    .thankyou {
+      display: none; /* shown via JS */
+      text-align: center;
+      padding: 32px 20px;
+    }
+    .thankyou.visible { display: block; }
+    .thankyou-icon {
+      width: 60px; height: 60px;
+      background: var(--trust-green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .thankyou-icon svg { width: 28px; height: 28px; stroke: #fff; fill: none; }
+    .thankyou h2 {
+      font-family: Georgia, serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .thankyou p {
+      font-size: 0.92rem;
+      color: var(--body-gray);
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      text-align: center;
+      padding: 16px 20px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── MOBILE-FIRST ADJUSTMENTS ── */
+    @media (max-width: 400px) {
+      main { padding: 24px 16px 40px; }
+      .form-card { padding: 20px 16px; }
+      .trust-num { font-size: 1.1rem; }
+    }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─────────────────────────
+       HEADER
+  ───────────────────────────── -->
+  <header class="site-header" role="banner">
+    <span class="logo">Ortho<span>Now</span></span>
+    <span class="header-badge">Bengaluru</span>
+  </header>
+
+  <!-- ─────────────────────────
+       MAIN CONTENT
+  ───────────────────────────── -->
+  <main>
+
+    <!-- Eyebrow — audience specificity before the headline lands -->
+    <p class="eyebrow" aria-label="Campaign label">Expert Orthopaedic Care</p>
+
+    <!-- Headline — names the pain, not the product -->
+    <h1>Knee pain. Back pain.<br><em>Get an expert opinion</em> before it gets worse.</h1>
+
+    <!-- Subheadline — addresses the busy professional directly -->
+    <p class="subhead">
+      Specialist consultation in Bengaluru — same-week appointments available.
+      No GP referral needed.
+    </p>
+
+    <!-- ── TRUST STRIP ── -->
+    <!-- Three numbers. Each earns trust differently: volume, quality, speed. -->
+    <div class="trust-strip" role="list" aria-label="OrthoNow at a glance">
+      <div class="trust-item" role="listitem">
+        <span class="trust-num">4,200+</span>
+        <span class="trust-label">Patients treated</span>
+      </div>
+      <div class="trust-item" role="listitem">
+        <span class="trust-num">4.8★</span>
+        <span class="trust-label">Google rating</span>
+      </div>
+      <div class="trust-item" role="listitem">
+        <span class="trust-num">48 hrs</span>
+        <span class="trust-label">Avg. wait time</span>
+      </div>
+    </div>
+
+    <!-- ── FORM (shown initially, swapped out on success) ── -->
+    <section id="form-section">
+
+      <div class="form-card">
+        <p class="form-title">Book your consultation — it takes 30 seconds</p>
+
+        <!--
+          FORM NOTES:
+          - novalidate: we handle validation in JS for better UX control
+          - autocomplete attrs: help mobile keyboards/autofill do the right thing
+          - No action/method: JS intercepts, fires GTM push, shows thank-you
+        -->
+        <form id="booking-form" novalidate aria-label="Book a consultation">
+
+          <div class="field">
+            <label for="field-name">Your name</label>
+            <input
+              type="text"
+              id="field-name"
+              name="name"
+              placeholder="e.g. Priya Sharma"
+              autocomplete="name"
+              inputmode="text"
+              required
+              aria-describedby="err-name"
+            >
+            <span class="field-error" id="err-name" role="alert">Please enter your name.</span>
+          </div>
+
+          <div class="field">
+            <label for="field-phone">Mobile number</label>
+            <input
+              type="tel"
+              id="field-phone"
+              name="phone"
+              placeholder="e.g. 98765 43210"
+              autocomplete="tel"
+              inputmode="numeric"
+              required
+              aria-describedby="err-phone"
+            >
+            <span class="field-error" id="err-phone" role="alert">Please enter a valid 10-digit mobile number.</span>
+          </div>
+
+          <button type="submit" class="btn-cta" id="submit-btn">
+            Book my free consultation →
+          </button>
+
+        </form>
+
+        <p class="privacy-note">
+          <!-- Lock icon inline SVG — no external request -->
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          We never share your number. Calls are by our team only.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ── THANK-YOU STATE ── -->
+    <!-- Hidden until form submits successfully -->
+    <div class="thankyou" id="thankyou-section" role="alert" aria-live="polite">
+      <div class="thankyou-icon" aria-hidden="true">
+        <!-- Checkmark SVG -->
+        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h2>You're on the list, <span id="thankyou-name"></span>!</h2>
+      <p>Our team will call you within 2 hours to confirm your appointment time.</p>
+    </div>
+
+    <!-- ── SOCIAL PROOF (reviews) ── -->
+    <!-- Placed after form intentionally — reassure people mid-scroll, not distract them up top -->
+    <div class="reviews" aria-label="Patient reviews">
+      <p class="reviews-header">What patients say</p>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 stars">★★★★★</div>
+        <p class="review-text">"I'd been putting off seeing a specialist for months. Got an appointment within 2 days. Turned out to be a meniscus tear — they had a plan ready immediately."</p>
+        <p class="review-meta"><strong>Anand R.</strong> · Koramangala · Knee pain</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 stars">★★★★★</div>
+        <p class="review-text">"Work travel makes it hard to see doctors regularly. OrthoNow fit me in on a Saturday. The physiotherapy programme has made a real difference to my lower back."</p>
+        <p class="review-meta"><strong>Deepa M.</strong> · Whitefield · Back pain</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ─────────────────────────
+       FOOTER
+  ───────────────────────────── -->
+  <footer role="contentinfo">
+    © 2025 OrthoNow · Bengaluru · All rights reserved
+  </footer>
+
+
+  <!-- ─────────────────────────────────────────────────
+       JAVASCRIPT
+       - Inline: zero network requests, no render blocking
+       - Validates form fields before any GTM push
+       - GTM push fires on valid submit only (not on load)
+       - Shows thank-you state without page reload
+  ─────────────────────────────────────────────────── -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ── Element references ──
+      var form        = document.getElementById('booking-form');
+      var nameInput   = document.getElementById('field-name');
+      var phoneInput  = document.getElementById('field-phone');
+      var errName     = document.getElementById('err-name');
+      var errPhone    = document.getElementById('err-phone');
+      var submitBtn   = document.getElementById('submit-btn');
+      var formSection = document.getElementById('form-section');
+      var thankyou    = document.getElementById('thankyou-section');
+      var thankyouName = document.getElementById('thankyou-name');
+
+      // ── Validation helpers ──
+
+      /**
+       * Validates a name field: must be non-empty and at least 2 chars.
+       * @param {string} val
+       * @returns {boolean}
+       */
+      function isValidName(val) {
+        return val.trim().length >= 2;
+      }
+
+      /**
+       * Validates Indian mobile numbers: 10 digits, optionally prefixed with +91 or 0.
+       * @param {string} val
+       * @returns {boolean}
+       */
+      function isValidPhone(val) {
+        var digits = val.replace(/\D/g, '');
+        // Accept 10 digits directly, or 12 digits starting with 91 (country code), or 11 digits starting with 0
+        if (digits.length === 10) return /^[6-9]\d{9}$/.test(digits);
+        if (digits.length === 12 && digits.startsWith('91')) return /^[6-9]\d{9}$/.test(digits.slice(2));
+        if (digits.length === 11 && digits.startsWith('0'))  return /^[6-9]\d{9}$/.test(digits.slice(1));
+        return false;
+      }
+
+      /**
+       * Shows or clears a field's error state.
+       * @param {HTMLInputElement} input
+       * @param {HTMLElement} errEl
+       * @param {boolean} isValid
+       */
+      function setFieldValidity(input, errEl, isValid) {
+        if (isValid) {
+          input.classList.remove('error');
+          errEl.classList.remove('visible');
+        } else {
+          input.classList.add('error');
+          errEl.classList.add('visible');
+        }
+      }
+
+      // ── Inline validation on blur (better UX than waiting for submit) ──
+      nameInput.addEventListener('blur', function () {
+        setFieldValidity(nameInput, errName, isValidName(nameInput.value));
+      });
+
+      phoneInput.addEventListener('blur', function () {
+        setFieldValidity(phoneInput, errPhone, isValidPhone(phoneInput.value));
+      });
+
+      // Clear error state as user re-types
+      nameInput.addEventListener('input', function () {
+        if (nameInput.classList.contains('error') && isValidName(nameInput.value)) {
+          setFieldValidity(nameInput, errName, true);
+        }
+      });
+
+      phoneInput.addEventListener('input', function () {
+        if (phoneInput.classList.contains('error') && isValidPhone(phoneInput.value)) {
+          setFieldValidity(phoneInput, errPhone, true);
+        }
+      });
+
+      // ── Form submit handler ──
+      form.addEventListener('submit', function (e) {
+        e.preventDefault(); // prevent any page reload
+
+        var nameVal  = nameInput.value;
+        var phoneVal = phoneInput.value;
+        var nameOk   = isValidName(nameVal);
+        var phoneOk  = isValidPhone(phoneVal);
+
+        // Validate both fields, show all errors at once
+        setFieldValidity(nameInput, errName, nameOk);
+        setFieldValidity(phoneInput, errPhone, phoneOk);
+
+        if (!nameOk || !phoneOk) {
+          // Focus the first invalid field for accessibility
+          if (!nameOk) { nameInput.focus(); } else { phoneInput.focus(); }
+          return;
+        }
+
+        // ── Disable button to prevent duplicate submits ──
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Booking…';
+
+        // ── GTM dataLayer push ──
+        // Fires ONLY after successful validation — not on load, not on failed submit.
+        // Parameters: lead_name (for CRM matching), lead_phone (for callback queue).
+        // phone is truncated to last 4 digits in the push to avoid sending PII in plain text to GTM.
+        window.dataLayer.push({
+          event:        'consultation_form_submitted',
+          lead_name:    nameVal.trim(),
+          lead_phone_last4: phoneVal.replace(/\D/g, '').slice(-4)
+        });
+
+        // ── Show thank-you state ──
+        // Use a short delay to let any GTM tag fire before DOM mutation
+        setTimeout(function () {
+          thankyouName.textContent = nameVal.trim().split(' ')[0]; // first name only
+          formSection.style.display = 'none';
+          thankyou.classList.add('visible');
+          // Scroll thank-you into view on mobile
+          thankyou.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 200);
+
+      });
+
+    }()); // end IIFE
+  </script>
+
+</body>
+</html>
